@@ -1,4 +1,5 @@
 const Hapi = require('hapi');
+const customers = require('./mocks/customers');
 const server = new Hapi.server({
     host: process.env.SERVER_HOST,
     port: process.env.SERVER_PORT
@@ -8,7 +9,8 @@ server.route({
     method: 'GET',
     path: '/customers/{id}',
     handler: (request, h) => {
-        return `hello world ${request.params.id}`;
+        const response = h.response(JSON.stringify(customers));
+        return response;
     }
 });
 
