@@ -5,12 +5,17 @@ const server = new Hapi.server({
     port: process.env.SERVER_PORT
 });
 
+
+server.decorate('toolkit', 'json', function (value) {
+    return this.response(JSON.stringify(value))
+            .type('application/json');
+});
+
 server.route({
     method: 'GET',
     path: '/customers/{id}',
     handler: (request, h) => {
-        const response = h.response(JSON.stringify(customers));
-        return response;
+        return h.json(customers);
     }
 });
 
