@@ -1,0 +1,22 @@
+{
+  "name": "customer-happi",
+  "version": "0.0.1",
+  "description": "a customer api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JBetoReyes/customer-happi.git"
+  },
+  "author": "JReyes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JBetoReyes/customer-happi/issues"
+  },
+  "homepage": "https://github.com/JBetoReyes/customer-happi#readme",
+  "dependencies": {
+    "happi": "^0.9.1"
+  }
+}
