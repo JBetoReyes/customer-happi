@@ -8,7 +8,7 @@ server.route({
     method: 'GET',
     path: '/customers/{id}',
     handler: (request, h) => {
-        return `hello world ${server.params.id}`;
+        return `hello world ${request.params.id}`;
     }
 });
 
