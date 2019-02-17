@@ -4,7 +4,8 @@
   "description": "a customer api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r dotenv/config app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/JBetoReyes/customer-happi#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
+    "hapi": "^18.1.0",
     "happi": "^0.9.1"
   }
 }
