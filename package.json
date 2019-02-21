@@ -4,7 +4,7 @@
   "description": "a customer api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive test",
     "start": "node -r dotenv/config app.js",
     "dev": "nodemon -r dotenv/config app.js"
   },
@@ -21,9 +21,12 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "hapi": "^18.1.0",
-    "happi": "^0.9.1"
+    "happi": "^0.9.1",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.0",
     "nodemon": "^1.18.10"
   }
 }
