@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JBetoReyes/customer-happi#readme",
   "dependencies": {
+    "blipp": "^3.1.2",
     "dotenv": "^6.2.0",
     "hapi": "^18.1.0",
     "happi": "^0.9.1",
