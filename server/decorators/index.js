@@ -4,7 +4,7 @@ const getDecorators = async () => {
     return await Walk.files(__dirname);
 }
 
-const register = (server) => {
+const decorate = (server) => {
     return (decorator) => {
         const { type, name, handler } = decorator;
         server.decorate(type, name, handler)
@@ -22,5 +22,5 @@ module.exports = async (server) => {
                 ...current 
             ]
         }, [])
-        .forEach(register(server));
+        .forEach(decorate(server));
 };
