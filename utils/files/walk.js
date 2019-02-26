@@ -17,6 +17,10 @@ module.exports = class Walk {
         });
     }
 
+    static async filesDeep(path) {
+        return _.flattenDeep(await this.browseFiles(path)); 
+    }
+
     static metaData(path) {
         return new Promise((resolve, reject) => {
             fs.stat(path, (err, metaData) => {
@@ -43,10 +47,6 @@ module.exports = class Walk {
             });
         }); 
         return Promise.all(results);
-    }
-
-    static async filesDeep(path) {
-        return _.flattenDeep(await this.browseFiles(path)); 
     }
 
 }
