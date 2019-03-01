@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --recursive test",
     "start": "node -r dotenv/config app.js",
-    "dev": "nodemon -r dotenv/config app.js"
+    "dev": "npm run migrate && nodemon -r dotenv/config app.js",
+    "migrate": "db-migrate up"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
   "homepage": "https://github.com/JBetoReyes/customer-happi#readme",
   "dependencies": {
     "blipp": "^3.1.2",
+    "db-migrate": "^0.11.5",
+    "db-migrate-pg": "^0.5.0",
     "dotenv": "^6.2.0",
     "hapi": "^18.1.0",
     "happi": "^0.9.1",
