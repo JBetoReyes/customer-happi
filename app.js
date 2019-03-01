@@ -7,7 +7,7 @@ const server = new Server(
 try {
     const init = async () => {
         await server.initialize();
-        console.log(`Running server on port: ${server.getinfo().port}`);
+        console.log(`Running server on: ${server.getinfo().host}:${server.getinfo().port}`);
     }
     init();
 } catch(err) {

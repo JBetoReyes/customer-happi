@@ -3,5 +3,4 @@ FROM node
     ADD . /app
     WORKDIR app
     RUN npm install > /dev/null
-    EXPOSE 1337
     CMD ["npm", "run", "dev"]

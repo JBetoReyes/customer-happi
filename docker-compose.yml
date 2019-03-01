@@ -11,10 +11,10 @@ services:
   
   api:
     build: .
-    ports:
-      - 1337:1337
     depends_on:
       - db
+    ports:
+      - 1337:1337
 
   adminer:
     image: adminer
