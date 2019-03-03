@@ -15,10 +15,11 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db, callback) {
-  db.createTable('customer', {
+  db.createTable('customers', {
     id: {
-      type: 'int',
-      primaryKey: true
+      type: 'string',
+      primaryKey: true,
+      length: 36
     },
     first_name: {
       type: 'string',
