@@ -15,27 +15,20 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db, callback) {
-  db.createTable('customers', {
+  db.createTable('users', {
     id: {
       type: 'string',
       primaryKey: true,
       length: 36
     },
-    first_name: {
+    user_name: {
       type: 'string',
       length: 40
     },
-    last_name: {
+    password: {
       type: 'string',
-      length: 40
-    },
-    dob: {
-      type: 'date'
-    },
-    email: {
-      type: 'string',
-      length: 50
-    },
+      length: 100
+    }
   }, function(err) {
     if (err) return callback(err);
     return callback();
@@ -43,7 +36,7 @@ exports.up = function(db, callback) {
 };
 
 exports.down = function(db) {
-  db.dropTable('customers');
+  return db.dropTable('users');
 };
 
 exports._meta = {

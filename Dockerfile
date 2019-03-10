@@ -1,5 +1,5 @@
-FROM node
+FROM node:8.15
     RUN mkdir /app
     WORKDIR app
     RUN npm install > /dev/null
-    CMD ["npm", "run", "dev"]
+    CMD [ "npm", "run", "dev"]
