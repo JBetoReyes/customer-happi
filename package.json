@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --recursive test",
     "start": "node -r dotenv/config app.js",
+    "clean": "rm -rf ./node_modules",
     "dev": "npm run migrate && nodemon -r dotenv/config app.js",
     "migrate": "db-migrate up"
   },
@@ -22,6 +23,7 @@
   "dependencies": {
     "bcrypt": "^3.0.4",
     "blipp": "^3.1.2",
+    "boom": "^7.3.0",
     "db-migrate": "^0.11.5",
     "db-migrate-pg": "^0.5.0",
     "dotenv": "^6.2.0",

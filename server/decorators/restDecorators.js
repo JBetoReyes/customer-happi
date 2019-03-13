@@ -16,7 +16,7 @@ module.exports = [
                 .code(409);
         }
     }, {
-        name: 'unauthorized',
+        name: 'unauthorized2',
         type: 'toolkit',
         handler: function restDecorator (notFoundMessage) {
             const message = { message: notFoundMessage };
@@ -26,4 +26,4 @@ module.exports = [
                 .code(401);
         }
     }
-]
+];

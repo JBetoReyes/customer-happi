@@ -4,6 +4,7 @@ const decorator = require('./decorators/index');
 const router = require('../lib/routers');
 const Blipp = require('blipp');
 const db = require('../lib/db');
+const authSchemes = require('../lib/authorization');
 
 module.exports = class Server {
 
@@ -16,8 +17,17 @@ module.exports = class Server {
 
     async initialize() {
         this.decorate();
+        await this.addAuthSchemes();
         await this.register();
         await this.server.start();
+    }
+
+    async addAuthSchemes() {
+        authSchemes.forEach((config) => {
+            const { name, scheme } = config;
+            this.server.auth.scheme(name, scheme);
+            this.server.auth.strategy(name, name);
+        });
     }
 
     async register() {
@@ -28,7 +38,7 @@ module.exports = class Server {
             dbPlugin,
             ...routes,
             {
-                plugin: Blipp
+                plugin: Blipp, options: { showAuth: true }
             }
         ]);
     }
@@ -41,4 +51,4 @@ module.exports = class Server {
         decorator(this.server);
     }
 
-}
+};
