@@ -1,5 +1,8 @@
 const path = require('path');
 const Hapi = require('hapi');
+const Inert = require('inert');
+const Vision = require('vision');
+const HapiSwagger = require('hapi-swagger');
 const decorator = require('./decorators/index');
 const router = require('../lib/routers');
 const Blipp = require('blipp');
@@ -35,6 +38,11 @@ module.exports = class Server {
         const routesPath = path.resolve(__dirname, '..', 'lib', 'routers');
         const routes = await router.routesAsPlugins(routesPath);
         await this.server.register([
+            Inert,
+            Vision,
+            {
+                plugin: HapiSwagger, options: { info : { title: 'Test API Documentation' } }
+            },
             dbPlugin,
             ...routes,
             {
