@@ -1,4 +1,5 @@
 const Hapi = require('hapi');
+const routes = require('../lib/routers');
 const Blipp = require('blipp');
 const decorator = require('./decorator');
 
@@ -23,32 +24,8 @@ module.exports = class Server {
     }
 
     async _register() {
-        const routePlugin = {
-            name: 'getCustomers',
-            version: '0.0.1',
-            register: function (server, options) {
-                server.route({
-                    method: 'GET',
-                    path: '/customers',
-                    handler: (request, h) => {
-                        return h.json({
-                            "data": [
-                                {
-                                    "id": "fedb2fa3-8f5c-5189-80e6-f563dd1cb8f9",
-                                    "name": 'jon',
-                                    "lastName": "doe",
-                                    "address": "some address",
-                                    "phone": "123-123-1234"
-                                }
-                            ]
-                        });
-                    }
-                });
-            }
-        };
-
         await this._server.register([
-            routePlugin,
+            ...routes,
             { plugin: Blipp, options: { showAuth: false } }
         ]);
     }
