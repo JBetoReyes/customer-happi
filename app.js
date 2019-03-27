@@ -9,15 +9,20 @@ server.route({
     method: 'GET',
     path: '/customers',
     handler: (request, h) => {
-        return JSON.stringify({"data" : [
-            {
-                "id": 1,
-                "firstName": 'Jon',
-                "lastName": 'Doe',
-                "address": "some direction",
-                "phone": "123-123-1234"
-            }
-        ]});
+        const response = h.response(JSON.stringify({
+            "data": [
+                {
+                    "id": "fedb2fa3-8f5c-5189-80e6-f563dd1cb8f9",
+                    "name": 'jon',
+                    "lastName": "doe",
+                    "address": "some address",
+                    "phone": "123-123-1234"
+                }
+            ]
+        }));
+        response.type('application/json');
+
+        return response;
     }
 });
 
