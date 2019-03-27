@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JBetoReyes/customer-happi#readme",
   "dependencies": {
-    "happi": "^0.9.1"
+    "dotenv": "^7.0.0",
+    "hapi": "^18.1.0"
   }
 }
