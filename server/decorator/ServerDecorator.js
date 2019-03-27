@@ -4,7 +4,7 @@ module.exports = class ServerDecorator {
     }
     decorate(server) {
         this._decorators.forEach((decorator) => {
-           const { type, name, handler} = decorator;
+           const { type, name, handler } = decorator;
            server.decorate(type, name, handler);
         });
     }
