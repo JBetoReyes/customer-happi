@@ -1,16 +1,12 @@
 const hapi = require('hapi');
+const decorator = require('./decorator');
 
 const server = hapi.server({
     port: process.env.HAPI_PORT,
     host: process.env.HAPI_HOST
 });
 
-const json = function restJsonDecorator (value) {
-    return this.response(value)
-        .type('application/json');
-};
-
-server.decorate('toolkit', 'json', json);
+decorator(server);
 
 server.route({
     method: 'GET',
