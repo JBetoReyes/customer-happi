@@ -5,11 +5,18 @@ const server = hapi.server({
     host: process.env.HAPI_HOST
 });
 
+const json = function restJsonDecorator (value) {
+    return this.response(value)
+        .type('application/json');
+};
+
+server.decorate('toolkit', 'json', json);
+
 server.route({
     method: 'GET',
     path: '/customers',
     handler: (request, h) => {
-        const response = h.response(JSON.stringify({
+        return h.json({
             "data": [
                 {
                     "id": "fedb2fa3-8f5c-5189-80e6-f563dd1cb8f9",
@@ -19,10 +26,7 @@ server.route({
                     "phone": "123-123-1234"
                 }
             ]
-        }));
-        response.type('application/json');
-
-        return response;
+        });
     }
 });
 
