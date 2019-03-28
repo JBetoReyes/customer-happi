@@ -2,6 +2,7 @@ const Hapi = require('hapi');
 const routes = require('../lib/routers');
 const Blipp = require('blipp');
 const decorator = require('./decorator');
+const db = require('../lib/db');
 
 module.exports = class Server {
 
@@ -24,7 +25,9 @@ module.exports = class Server {
     }
 
     async _register() {
+        const dbPlugin = db.buildDbPlugin();
         await this._server.register([
+            dbPlugin,
             ...routes,
             { plugin: Blipp, options: { showAuth: false } }
         ]);
