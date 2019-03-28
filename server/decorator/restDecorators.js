@@ -15,5 +15,11 @@ module.exports = [
         handler: function conflictRestDecorator (message) {
             return Boom.conflict(message);
         }
+    }, {
+        type: 'toolkit',
+        name: 'unauthorized',
+        handler: function unauthorizedDecorator(message) {
+            return Boom.unauthorized(message);
+        }
     }
 ];

@@ -1,6 +1,8 @@
 const restDecorators = require('./restDecorators');
+const tokenDecorators = require('./tokenDecorators');
 const decorators = [
-    ...restDecorators
+    ...restDecorators,
+    ...tokenDecorators
 ];
 
 const ServerDecorator = require('./ServerDecorator');
