@@ -4,7 +4,8 @@
   "description": "a customer api",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config app.js"
+    "dev": "nodemon -r dotenv/config app.js",
+    "migrate": "db-migrate up"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,9 @@
     "blipp": "^3.1.3",
     "dotenv": "^7.0.0",
     "hapi": "^18.1.0",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "db-migrate": "^0.11.5",
+    "db-migrate-pg": "^0.5.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
