@@ -4,6 +4,9 @@ const Blipp = require('blipp');
 const decorator = require('./decorator');
 const db = require('../lib/db');
 const defaultScheme = require('./authorization');
+const Inert = require('inert');
+const Vision = require('vision');
+const HappiSwagger = require('hapi-swagger');
 
 module.exports = class Server {
 
@@ -35,6 +38,11 @@ module.exports = class Server {
     async _register() {
         const dbPlugin = db.buildDbPlugin();
         await this._server.register([
+            Inert,
+            Vision,
+            {
+                plugin: HappiSwagger, options: { info : { title: 'Api Documentation' } }
+            },
             dbPlugin,
             ...routes,
             { plugin: Blipp, options: { showAuth: true } }
