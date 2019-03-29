@@ -2,6 +2,7 @@ const JWT = require('jsonwebtoken');
 const fs = require('fs');
 const path = require('path');
 const privateKey = fs.readFileSync(path.resolve(__dirname, '../..', 'private.key'));
+const publicKey = fs.readFileSync(path.resolve(__dirname, '../..', 'public.key'));
 
 module.exports = [{
     type: 'toolkit',
@@ -9,5 +10,19 @@ module.exports = [{
     handler: async function jsonRestDecorator (user) {
         const { id, userName } = user;
         return JWT.sign( { id, userName }, privateKey, { algorithm: 'RS256' });
+    }
+}, {
+    type: 'toolkit',
+    name: 'decode',
+    handler: async function decodeTokenDecorator(token, scheme, key = publicKey) {
+        const userCredentials = await new Promise((resolve, reject) => {
+            JWT.verify(token, key, (err, decodedToken) => {
+                if (err) {
+                    reject(err)
+                }
+                resolve(decodedToken)
+            });
+        });
+        return userCredentials;
     }
 }];

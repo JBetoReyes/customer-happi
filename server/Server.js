@@ -3,6 +3,7 @@ const routes = require('../lib/routers');
 const Blipp = require('blipp');
 const decorator = require('./decorator');
 const db = require('../lib/db');
+const defaultScheme = require('./authorization');
 
 module.exports = class Server {
 
@@ -15,9 +16,16 @@ module.exports = class Server {
 
     async initialize() {
         this._decorate();
+        this._setDefaultAuthScheme();
         await this._register();
         await this._server.start();
         console.log(`server started at port: ${ this._server.info.port }`);
+    }
+
+    _setDefaultAuthScheme() {
+        const { name: schemeName, schemeConfig, strategy } = defaultScheme;
+        this._server.auth.scheme(schemeName, schemeConfig);
+        this._server.auth.strategy(strategy, schemeName);
     }
 
     _decorate() {
@@ -29,7 +37,7 @@ module.exports = class Server {
         await this._server.register([
             dbPlugin,
             ...routes,
-            { plugin: Blipp, options: { showAuth: false } }
+            { plugin: Blipp, options: { showAuth: true } }
         ]);
     }
 };
