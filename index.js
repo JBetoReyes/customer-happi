@@ -13,7 +13,7 @@ const server = Hapi.server({
 
 const init = async () => {
     await server.start();
-    debug(`Server listening on port: ${ server.info.port }`);
+    debug(`Server listening on host: ${ server.info.host } port: ${ server.info.port }`);
 };
 
 init();
