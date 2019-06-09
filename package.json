@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/JBetoReyes/customer-happi#readme",
   "dependencies": {
+    "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "hapi": "^18.1.0",
     "happi": "^0.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
