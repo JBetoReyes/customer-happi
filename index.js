@@ -12,7 +12,7 @@ const server = new Server({
 });
 
 try {
-    server.start();
+    server.init();
 } catch(err) {
     errLog(err)
 }

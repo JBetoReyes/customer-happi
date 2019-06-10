@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/JBetoReyes/customer-happi#readme",
   "dependencies": {
+    "blipp": "^4.0.0",
     "debug": "^4.1.1",
     "dotenv": "^8.0.0",
     "hapi": "^18.1.0",
-    "happi": "^0.9.1"
+    "happi": "^0.9.1",
+    "lodash": "^4.17.11",
+    "pluralize": "^8.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
