@@ -24,7 +24,9 @@
     "hapi": "^18.1.0",
     "happi": "^0.9.1",
     "lodash": "^4.17.11",
-    "pluralize": "^8.0.0"
+    "pg": "^7.11.0",
+    "pluralize": "^8.0.0",
+    "sequelize": "^5.8.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
